@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+// Definir o número de alunos e o número de notas
+#define ALUNOS 10
+#define NOTAS 3
+
+// Função para gerar notas aleatórias entre 0.0 e 10.0
+float gerarNota() {
+    return (rand() % 101) / 10.0;  // Gera um valor entre 0.0 e 10.0
+}
+
+// Função para preencher a matriz com as notas e calcular a média
+void preencherMatriz(float matriz[ALUNOS][NOTAS]) {
+    for (int i = 0; i < ALUNOS; i++) {
+        // Gerar notas aleatórias para o Grau A e Grau B
+        matriz[i][0] = gerarNota();  // Grau A
+        matriz[i][1] = gerarNota();  // Grau B
+        
+        // Calcular a média dos dois graus
+        matriz[i][2] = (matriz[i][0] + matriz[i][1]) / 2.0;  // Grau Parcial
+    }
+}
+
+// Função para exibir a matriz
+void exibirMatriz(float matriz[ALUNOS][NOTAS]) {
+    for (int i = 0; i < ALUNOS; i++) {
+        printf("Aluno %d: %.1f %.1f %.1f\n", i + 1, matriz[i][0], matriz[i][1], matriz[i][2]);
+    }
+}
+
+int main() {
+    srand(time(NULL));  // Inicializa o gerador de números aleatórios
+
+    float matriz[ALUNOS][NOTAS];
+
+    // Preencher a matriz com notas e médias
+    preencherMatriz(matriz);
+
+    // Exibir as notas dos alunos
+    printf("Notas dos alunos (Grau A, Grau B, Grau Parcial):\n");
+    exibirMatriz(matriz);
+
+    return 0;
+}
