@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define LINHAS 5
+#define COLUNAS 5
+
+// Função para preencher a matriz com valores inteiros aleatórios entre -10 e 10
+void preencherMatriz(int matriz[LINHAS][COLUNAS]) {
+    for (int i = 0; i < LINHAS; i++) {
+        for (int j = 0; j < COLUNAS; j++) {
+            matriz[i][j] = rand() % 21 - 10;  // Gera valores entre -10 e 10
+        }
+    }
+}
+
+// Função para exibir a matriz
+void exibirMatriz(int matriz[LINHAS][COLUNAS]) {
+    for (int i = 0; i < LINHAS; i++) {
+        for (int j = 0; j < COLUNAS; j++) {
+            printf("%3d ", matriz[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+// Função para inverter o sinal dos números na matriz
+void inverterSinais(int matriz[LINHAS][COLUNAS]) {
+    for (int i = 0; i < LINHAS; i++) {
+        for (int j = 0; j < COLUNAS; j++) {
+            matriz[i][j] = -matriz[i][j];  // Inverte o sinal
+        }
+    }
+}
+
+int main() {
+    srand(time(NULL));  // Inicializa o gerador de números aleatórios
+
+    int matriz[LINHAS][COLUNAS];
+
+    // Preencher a matriz com números aleatórios
+    preencherMatriz(matriz);
+
+    // Exibir a matriz original
+    printf("Matriz original:\n");
+    exibirMatriz(matriz);
+
+    // Inverter os sinais dos elementos da matriz
+    inverterSinais(matriz);
+
+    // Exibir a matriz após inverter os sinais
+    printf("\nMatriz após inverter os sinais:\n");
+    exibirMatriz(matriz);
+
+    return 0;
+}
