@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+// Função para gerar a matriz identidade 4x4
+void gerarMatrizIdentidade(int matriz[4][4]) {
+    // Preencher a matriz com zeros
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            matriz[i][j] = 0;
+        }
+    }
+
+    // Definir a diagonal principal como 1
+    for (int i = 0; i < 4; i++) {
+        matriz[i][i] = 1;
+    }
+}
+
+// Função para exibir a matriz
+void exibirMatriz(int matriz[4][4]) {
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            printf("%d ", matriz[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    int matriz[4][4];
+
+    // Gerar a matriz identidade 4x4
+    gerarMatrizIdentidade(matriz);
+
+    // Exibir a matriz
+    printf("Matriz Identidade 4x4:\n");
+    exibirMatriz(matriz);
+
+    return 0;
+}
