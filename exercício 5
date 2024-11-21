@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define LINHAS 4
+#define COLUNAS 6
+
+// Função para preencher a matriz com valores aleatórios entre -10 e 10
+void preencherMatriz(int matriz[LINHAS][COLUNAS]) {
+    for (int i = 0; i < LINHAS; i++) {
+        for (int j = 0; j < COLUNAS; j++) {
+            matriz[i][j] = rand() % 21 - 10; // Gera números entre -10 e 10
+        }
+    }
+}
+
+// Função para exibir a matriz
+void exibirMatriz(int matriz[LINHAS][COLUNAS]) {
+    for (int i = 0; i < LINHAS; i++) {
+        for (int j = 0; j < COLUNAS; j++) {
+            printf("%3d ", matriz[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+// Função para encontrar o maior e o menor valor da matriz
+void encontrarMaiorEMenor(int matriz[LINHAS][COLUNAS], int *maior, int *menor) {
+    // Inicializar maior e menor com o primeiro valor da matriz
+    *maior = matriz[0][0];
+    *menor = matriz[0][0];
+
+    // Percorrer todos os elementos da matriz
+    for (int i = 0; i < LINHAS; i++) {
+        for (int j = 0; j < COLUNAS; j++) {
+            if (matriz[i][j] > *maior) {
+                *maior = matriz[i][j]; // Atualiza o maior valor
+            }
+            if (matriz[i][j] < *menor) {
+                *menor = matr
